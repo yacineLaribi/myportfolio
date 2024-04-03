@@ -115,24 +115,24 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 
 
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
+// // contact form variables
+// const form = document.querySelector("[data-form]");
+// const formInputs = document.querySelectorAll("[data-form-input]");
+// const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
+// // add event to all form input field
+// for (let i = 0; i < formInputs.length; i++) {
+//   formInputs[i].addEventListener("input", function () {
 
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
+//     // check form validation
+//     if (form.checkValidity()) {
+//       formBtn.removeAttribute("disabled");
+//     } else {
+//       formBtn.setAttribute("disabled", "");
+//     }
 
-  });
-}
+//   });
+// }
 
 
 
@@ -157,3 +157,33 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+//Form sending 
+const form = document.getElementById("form");
+const sub = document.querySelector(".form-btn");
+var i = 0 ;
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  if (i==0){
+    emailjs.sendForm("service_p8lfbij", "template_chkgosw", this).then(
+    function (response) {
+      console.log("Email sent successfully:", response);
+      sub.innerHTML =
+        '<ion-icon name="paper-plane"></ion-icon> <span>Message Sent successfully !</span>';
+      i++;
+        // Optionally, display a success message to the user
+    },
+    function (error) {
+      console.error("Error sending email:", error);
+
+      sub.innerHTML =
+        '<ion-icon name="paper-plane"></ion-icon> <span>Error occured sending the message .</span>';
+      // Optionally, display an error message to the user
+    }
+    );
+  }
+  else{
+    sub.innerHTML =
+      '<ion-icon name="paper-plane"></ion-icon> <span>Message Already Sent!</span>';
+  }
+});
