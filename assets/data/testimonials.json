@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Ilyes Machaoui",
+    "business": "Machaoui Ilyes - Grills Delivery",
+    "description": "Built a complete ecommerce delivery website for his grills business in Oran. The platform allows customers to browse menu items, place orders, and track deliveries in real-time. Integrated payment gateway and order management system for seamless operations."
+  },
+  {
+    "id": 2,
+    "name": "Ahmed",
+    "business": "AgroBioSmart",
+    "description": "Developed a comprehensive website and ecommerce platform for AgroBioSmart, an agricultural products company. The solution includes product catalog, inventory management, and online sales capabilities to expand their market reach and streamline their operations."
+  },
+  {
+    "id": 3,
+    "name": "Omar",
+    "business": "Piassti App",
+    "description": "Created a mobile app that connects car parts sellers, mechanics, and customers on a single platform. The app facilitates easy communication, product discovery, and service management between all parties, solving a critical gap in the automotive aftermarket."
+  },
+  {
+    "id": 4,
+    "name": "Client Portfolio",
+    "business": "E-Commerce Platform",
+    "description": "Developed a full-featured ecommerce website with product management, shopping cart, secure payment integration, and customer analytics. Built with responsive design to ensure seamless experience across all devices and high conversion optimization."
+  },
+  {
+    "id": 5,
+    "name": "Data Automation",
+    "business": "Web Scraping & Automation",
+    "description": "Implemented web scraping solutions and automation scripts for data collection and processing. Created automated workflows to handle repetitive tasks, improve data accuracy, and save significant time and resources for business operations."
+  },
+  {
+    "id": 6,
+    "name": "Business Solutions",
+    "business": "Custom Web Development",
+    "description": "Delivered custom web applications tailored to specific business needs. From backend API development to frontend interfaces, each project is optimized for performance, scalability, and user experience with modern technologies and best practices."
+  }
+]

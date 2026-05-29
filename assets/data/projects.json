@@ -1,0 +1,141 @@
+[
+  {
+    "id": 1,
+    "name": "Hippo - Platforme Educative Médicale",
+    "category": "Web development",
+    "thumbnail": "./assets/images/logo-pre-light-2.svg",
+    "details": "A comprehensive medical educational platform designed to help students and professionals access quality medical education resources. Features include interactive lessons, case studies, and a community forum.",
+    "gallery": [
+      "./assets/images/logo-pre-light-2.svg",
+      "./assets/images/logo-pre-light-2.svg",
+      "./assets/images/logo-pre-light-2.svg"
+    ],
+    "link": "https://hippodz.com/",
+    "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"]
+  },
+  {
+    "id": 2,
+    "name": "Infini IA Website",
+    "category": "Web development",
+    "thumbnail": "./assets/images/infiniwebsite.png",
+    "details": "A cutting-edge AI-powered website for Infini IA, showcasing their artificial intelligence solutions and services. The platform features dynamic content, AI chatbot integration, and case study showcases.",
+    "gallery": [
+      "./assets/images/infiniwebsite.png"
+    ],
+    "link": "https://infiniia.ca/",
+    "technologies": ["HTML", "CSS", "Python", "Django"]
+  },
+  {
+    "id": 4,
+    "name": "Wimax For Palestine",
+    "category": "Web development",
+    "thumbnail": "./assets/images/wimax.png",
+    "details": "A charitable initiative website focused on providing telecommunications solutions to Palestine. The site includes donation functionality and impact tracking.",
+    "gallery": [
+      "./assets/images/wimax.png",
+      "./assets/images/wimax.png",
+      "./assets/images/wimax.png"
+    ],
+    "link": "https://yacinelaribi.github.io/WimaxForPalestine/",
+    "technologies": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "id": 5,
+    "name": "Phoenix Website",
+    "category": "Web development",
+    "thumbnail": "./assets/images/phoenixw.png",
+    "details": "The official website for Phoenix Club, a scientific organization at ESGEE. Features club events, projects showcase, member directory, and tech corner initiatives.",
+    "gallery": [
+      "./assets/images/phoenixw.png",
+      "./assets/images/phoenixw.png",
+      "./assets/images/phoenixw.png"
+    ],
+    "link": "https://phoenix-esgee.site/",
+    "technologies": ["React", "Firebase", "Tailwind CSS"]
+  },
+  {
+    "id": 6,
+    "name": "To Do List (Flutter)",
+    "category": "Applications",
+    "thumbnail": "./assets/images/project-8.jpg",
+    "details": "A cross-platform mobile application built with Flutter. Features include task management, priority levels, due dates, and local notifications for reminders.",
+    "gallery": [
+      "./assets/images/project-8.jpg",
+      "./assets/images/project-8.jpg",
+      "./assets/images/project-8.jpg"
+    ],
+    "link": "#",
+    "technologies": ["Flutter", "Dart", "Firebase"]
+  },
+  {
+    "id": 7,
+    "name": "Ink Talks Website",
+    "category": "Web development",
+    "thumbnail": "./assets/images/inktalks.png",
+    "details": "An engaging platform for sharing writing and literature discussions. Features include user profiles, story submissions, voting system, and community comments.",
+    "gallery": [
+      "./assets/images/inktalks.png",
+      "./assets/images/inktalks.png",
+      "./assets/images/inktalks.png"
+    ],
+    "link": "https://yacinelaribi.github.io/ink-talks/",
+    "technologies": ["React", "SCSS", "Firebase"]
+  },
+  {
+    "id": 8,
+    "name": "Telehack V-1",
+    "category": "Web development",
+    "thumbnail": "./assets/images/telehackweb.png",
+    "details": "An interactive cybersecurity challenge platform. Users can attempt various hacking challenges, learn about security concepts, and compete on leaderboards.",
+    "gallery": [
+      "./assets/images/telehackweb.png",
+      "./assets/images/telehackweb.png",
+      "./assets/images/telehackweb.png"
+    ],
+    "link": "https://telehack.phoenix-esgee.site/",
+    "technologies": ["React", "Node.js", "MongoDB", "Socket.io"]
+  },
+  {
+    "id": 9,
+    "name": "CTF Challenge",
+    "category": "Web development",
+    "thumbnail": "./assets/images/ctf.png",
+    "details": "A comprehensive Capture The Flag (CTF) competition platform. Features secure challenge hosting, real-time scoring, team management, and detailed analytics.",
+    "gallery": [
+      "./assets/images/ctf.png",
+      "./assets/images/ctf.png",
+      "./assets/images/ctf.png"
+    ],
+    "link": "https://github.com/yacineLaribi/phoenix-ctf",
+    "technologies": ["Python", "Docker", "PostgreSQL", "Flask"]
+  },
+  {
+    "id": 10,
+    "name": "Media Craft Website",
+    "category": "Web development",
+    "thumbnail": "./assets/images/mediacraft.png",
+    "details": "A creative media production platform showcasing multimedia projects and services. Includes portfolio display, client testimonials, and booking system.",
+    "gallery": [
+      "./assets/images/mediacraft.png",
+      "./assets/images/mediacraft.png",
+      "./assets/images/mediacraft.png"
+    ],
+    "link": "https://yacinelaribi.github.io/media_craft",
+    "technologies": ["React", "Framer Motion", "SCSS"]
+  },
+  {
+    "id": 11,
+    "name": "Stagini",
+    "category": "Web development",
+    "thumbnail": "./assets/images/stagini.png",
+    "details": "An internship and apprenticeship matching platform. Connects students with companies offering internship opportunities, featuring job listings, applications, and notifications.",
+    "gallery": [
+      "./assets/images/stagini.png",
+      "./assets/images/stagini.png",
+      "./assets/images/stagini.png"
+    ],
+    "link": "https://github.com/yacineLaribi/MHC",
+    "technologies": ["Django", "PostgreSQL", "React", "Celery"]
+  }
+]
+ 

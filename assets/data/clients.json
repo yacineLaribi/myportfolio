@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Phoenix Club",
+    "logo": "./assets/images/phoenix.png",
+    "website": "#"
+  },
+  {
+    "id": 2,
+    "name": "ESGEE",
+    "logo": "./assets/images/esgee.png",
+    "website": "#"
+  },
+  {
+    "id": 3,
+    "name": "Infini IA",
+    "logo": "./assets/images/infini.png",
+    "website": "#"
+  },
+  {
+    "id": 4,
+    "name": "Client 4",
+    "logo": "./assets/images/logo-4-color.png",
+    "website": "#"
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "education": [
+    {
+      "id": 1,
+      "school": "National Superior School of Electricity & Energy (ESGEE)",
+      "duration": "2022 — 2023",
+      "description": "I studied there for a whole year then i switched the career !"
+    },
+    {
+      "id": 2,
+      "school": "University of Medicine - Oran 1",
+      "duration": "2023 — Present",
+      "description": "I am a medical student , and yes i am intrested in the tech field too !"
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "title": "Freelance Web developer",
+      "duration": "2021 — Present",
+      "description": "I am a full stack web developer , i work with : HTML , CSS , JAVASCRIPT , BOOTSTRAP , TAILWIND CSS and REACT JS in the Frontend dev , and DJANGO framework for the Backend dev."
+    },
+    {
+      "id": 2,
+      "title": "Head Of Tech Corner Department at PHOENIX CLUB",
+      "duration": "2022 — 2023",
+      "description": "Phoenix is a scientific a club , that has multiple departments , one f them is the TECH CORNER which is a department to learn all the technical stuff like robotics , web dev and realising intresting projects with arduino , rasbarry pi and esp-32 . And i am the head of this department ."
+    },
+    {
+      "id": 3,
+      "title": "Video Editor & Designer",
+      "duration": "2020 — 2023",
+      "description": "From my childhood i wanted to be a famous guy or a youtuber , so iwas really intrested in how to make professional videos and i beacame a content creator who simplifies complex scientific topics in short videos and i have more than 20k followers on tiktok . But unfortunetly i couldn't continue in this path because i have a lot of work and studies to work on ..."
+    },
+
+    {
+      "id": 4,
+      "title": "CEO & Founder of Hippo Dz",
+      "duration": "April 2024 — Present",
+      "description": "Founded and developed Hippo Dz (hippodz.com), a medical educational platform designed to provide accessible healthcare education and resources. The platform has grown to over 2000 registered users and 5000+ active users, providing comprehensive medical learning tools and interactive content."
+    },    
+    
+    {
+      "id": 5,
+      "title": "President & Founder of Zenith Scientific Club",
+      "duration": "March 2025 — Present",
+      "description": "Founded and leading a scientific club at the Faculty of Medicine Oran with a mission to bring medicine and technology together. Organizing events, workshops, and projects that bridge the gap between medical education and technological innovation."
+    }
+  ]
+}

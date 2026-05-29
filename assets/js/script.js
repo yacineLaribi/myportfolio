@@ -1,13 +1,19 @@
 'use strict';
 
+// ============================================
+// GLOBAL VARIABLES
+// ============================================
 
+let allProjects = [];
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 
+// ============================================
+// SIDEBAR FUNCTIONALITY
+// ============================================
 
-// sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
@@ -15,47 +21,62 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
 
 
+// ============================================
+// TESTIMONIALS MODAL FUNCTIONALITY (moved to renderTestimonials function)
+// ============================================
 
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
 
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
+// ============================================
+// PROJECT MODAL FUNCTIONALITY
+// ============================================
 
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
+const projectModalContainer = document.querySelector("[data-project-modal-container]");
+const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
+const projectOverlay = document.querySelector("[data-project-overlay]");
+const projectModalTitle = document.querySelector("[data-project-modal-title]");
+const projectModalCategory = document.querySelector("[data-project-modal-category]");
+const projectModalDescription = document.querySelector("[data-project-modal-description]");
+const projectModalMainImg = document.querySelector("[data-project-modal-main-img]");
+const projectLinkBtn = document.querySelector("[data-project-link-btn]");
+const galleryThumbnails = document.getElementById("galleryThumbnails");
+const techTags = document.getElementById("techTags");
+
+let currentProjectGallery = [];
+
+const openProjectModal = function () {
+  projectModalContainer.classList.add("active");
+  projectOverlay.classList.add("active");
 }
 
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
+const closeProjectModal = function () {
+  projectModalContainer.classList.remove("active");
+  projectOverlay.classList.remove("active");
+}
 
-  testimonialsItem[i].addEventListener("click", function () {
+projectModalCloseBtn.addEventListener("click", closeProjectModal);
+projectOverlay.addEventListener("click", closeProjectModal);
 
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+// Gallery thumbnail click handler
+const setupGalleryThumbnails = function () {
+  const thumbnails = document.querySelectorAll(".gallery-thumbnail");
+  thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener("click", function () {
+      // Update main image
+      projectModalMainImg.src = currentProjectGallery[index];
+      projectModalMainImg.alt = "Project gallery image";
 
-    testimonialsModalFunc();
-
+      // Update active thumbnail
+      thumbnails.forEach(thumb => thumb.classList.remove("active"));
+      this.classList.add("active");
+    });
   });
-
 }
 
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
 
+// ============================================
+// FILTER & SELECT FUNCTIONALITY
+// ============================================
 
-
-// custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
@@ -70,28 +91,26 @@ for (let i = 0; i < selectItems.length; i++) {
     let selectedValue = this.innerText.toLowerCase();
     selectValue.innerText = this.innerText;
     elementToggleFunc(select);
-    filterFunc(selectedValue);
+    filterProjectFunc(selectedValue);
 
   });
 }
 
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
+// Filter function for projects
+const filterProjectFunc = function (selectedValue) {
+  const projectItems = document.querySelectorAll("[data-filter-item]");
 
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
+  for (let i = 0; i < projectItems.length; i++) {
 
     if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
+      projectItems[i].classList.add("active");
+    } else if (selectedValue === projectItems[i].dataset.category) {
+      projectItems[i].classList.add("active");
     } else {
-      filterItems[i].classList.remove("active");
+      projectItems[i].classList.remove("active");
     }
 
   }
-
 }
 
 // add event in all filter button items for large screen
@@ -103,7 +122,7 @@ for (let i = 0; i < filterBtn.length; i++) {
 
     let selectedValue = this.innerText.toLowerCase();
     selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
+    filterProjectFunc(selectedValue);
 
     lastClickedBtn.classList.remove("active");
     this.classList.add("active");
@@ -114,29 +133,323 @@ for (let i = 0; i < filterBtn.length; i++) {
 }
 
 
+// ============================================
+// PROJECT LOADING & RENDERING
+// ============================================
 
-// // contact form variables
-// const form = document.querySelector("[data-form]");
-// const formInputs = document.querySelectorAll("[data-form-input]");
-// const formBtn = document.querySelector("[data-form-btn]");
+// Load projects from config file
+const loadProjects = async function () {
+  try {
+    const response = await fetch('./assets/data/projects.json');
+    if (!response.ok) throw new Error('Failed to load projects');
+    allProjects = await response.json();
+    renderProjects();
+  } catch (error) {
+    console.error('Error loading projects:', error);
+  }
+}
 
-// // add event to all form input field
-// for (let i = 0; i < formInputs.length; i++) {
-//   formInputs[i].addEventListener("input", function () {
+// Render projects dynamically
+const renderProjects = function () {
+  const projectList = document.getElementById("projectList");
+  projectList.innerHTML = "";
 
-//     // check form validation
-//     if (form.checkValidity()) {
-//       formBtn.removeAttribute("disabled");
-//     } else {
-//       formBtn.setAttribute("disabled", "");
-//     }
+  allProjects.forEach(project => {
+    const categoryLower = project.category.toLowerCase();
+    const projectItem = document.createElement("li");
+    projectItem.className = "project-item active";
+    projectItem.setAttribute("data-filter-item", "");
+    projectItem.setAttribute("data-category", categoryLower);
 
-//   });
-// }
+    projectItem.innerHTML = `
+      <a href="#" class="project-card-link" data-project-id="${project.id}">
+        <figure class="project-img">
+          <div class="project-item-icon-box">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+          <img src="${project.thumbnail}" alt="${project.name}" loading="lazy" />
+        </figure>
+        <h3 class="project-title">${project.name}</h3>
+        <p class="project-category">${project.category}</p>
+      </a>
+    `;
+
+    projectList.appendChild(projectItem);
+
+    // Add click event to project card
+    const projectLink = projectItem.querySelector(".project-card-link");
+    projectLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      showProjectModal(project);
+    });
+  });
+}
+
+// Show project modal with details
+const showProjectModal = function (project) {
+  projectModalTitle.innerHTML = project.name;
+  projectModalCategory.innerHTML = project.category;
+  projectModalDescription.innerHTML = project.details;
+  projectLinkBtn.href = project.link;
+
+  // Setup gallery
+  currentProjectGallery = project.gallery;
+  projectModalMainImg.src = project.gallery[0];
+  projectModalMainImg.alt = project.name;
+
+  // Render gallery thumbnails
+  galleryThumbnails.innerHTML = "";
+  project.gallery.forEach((image, index) => {
+    const thumbnail = document.createElement("div");
+    thumbnail.className = `gallery-thumbnail ${index === 0 ? "active" : ""}`;
+    thumbnail.innerHTML = `<img src="${image}" alt="Gallery thumbnail ${index + 1}" />`;
+    galleryThumbnails.appendChild(thumbnail);
+  });
+
+  // Setup tech tags
+  techTags.innerHTML = "";
+  project.technologies.forEach(tech => {
+    const tag = document.createElement("span");
+    tag.className = "tech-tag";
+    tag.innerHTML = tech;
+    techTags.appendChild(tag);
+  });
+
+  // Setup gallery thumbnail click handlers
+  setupGalleryThumbnails();
+
+  // Open modal
+  openProjectModal();
+}
 
 
+// ============================================
+// CLIENTS LOADING & RENDERING
+// ============================================
 
-// page navigation variables
+// Load clients from config file
+const loadClients = async function () {
+  try {
+    const response = await fetch('./assets/data/clients.json');
+    if (!response.ok) throw new Error('Failed to load clients');
+    const clients = await response.json();
+    renderClients(clients);
+  } catch (error) {
+    console.error('Error loading clients:', error);
+  }
+}
+
+// Render clients dynamically
+const renderClients = function (clients) {
+  const clientsList = document.getElementById("clientsList");
+  clientsList.innerHTML = "";
+
+  clients.forEach(client => {
+    const clientItem = document.createElement("li");
+    clientItem.className = "clients-item";
+
+    clientItem.innerHTML = `
+      <a href="${client.website}">
+        <img src="${client.logo}" alt="${client.name}" />
+      </a>
+    `;
+
+    clientsList.appendChild(clientItem);
+  });
+}
+
+
+// ============================================
+// RESUME LOADING & RENDERING
+// ============================================
+
+// Load resume data from config file
+const loadResume = async function () {
+  try {
+    const response = await fetch('./assets/data/resume.json');
+    if (!response.ok) throw new Error('Failed to load resume');
+    const resumeData = await response.json();
+    renderEducation(resumeData.education);
+    renderExperience(resumeData.experience);
+  } catch (error) {
+    console.error('Error loading resume:', error);
+  }
+}
+
+// Render education dynamically
+const renderEducation = function (education) {
+  const educationList = document.getElementById("educationList");
+  educationList.innerHTML = "";
+
+  education.forEach(item => {
+    const eduItem = document.createElement("li");
+    eduItem.className = "timeline-item";
+
+    eduItem.innerHTML = `
+      <h4 class="h4 timeline-item-title">${item.school}</h4>
+      <span>${item.duration}</span>
+      <p class="timeline-text">${item.description}</p>
+    `;
+
+    educationList.appendChild(eduItem);
+  });
+}
+
+// Render experience dynamically
+const renderExperience = function (experience) {
+  const experienceList = document.getElementById("experienceList");
+  experienceList.innerHTML = "";
+
+  experience.forEach(item => {
+    const expItem = document.createElement("li");
+    expItem.className = "timeline-item";
+
+    expItem.innerHTML = `
+      <h4 class="h4 timeline-item-title">${item.title}</h4>
+      <span>${item.duration}</span>
+      <p class="timeline-text">${item.description}</p>
+    `;
+
+    experienceList.appendChild(expItem);
+  });
+}
+
+
+// ============================================
+// SKILLS LOADING & RENDERING
+// ============================================
+
+// Load skills from config file
+const loadSkills = async function () {
+  try {
+    const response = await fetch('./assets/data/skills.json');
+    if (!response.ok) throw new Error('Failed to load skills');
+    const skills = await response.json();
+    renderSkills(skills);
+  } catch (error) {
+    console.error('Error loading skills:', error);
+  }
+}
+
+// Render skills dynamically
+const renderSkills = function (skills) {
+  const skillsList = document.getElementById("skillsList");
+  skillsList.innerHTML = "";
+
+  skills.forEach(skill => {
+    const skillItem = document.createElement("li");
+    skillItem.className = "skills-item";
+
+    skillItem.innerHTML = `
+      <div class="title-wrapper">
+        <h5 class="h5">${skill.name}</h5>
+        <data value="${skill.value}">${skill.value}%</data>
+      </div>
+      <div class="skill-progress-bg">
+        <div class="skill-progress-fill" style="width: ${skill.value}%"></div>
+      </div>
+    `;
+
+    skillsList.appendChild(skillItem);
+  });
+}
+
+
+// ============================================
+// TESTIMONIALS LOADING & RENDERING
+// ============================================
+
+// Load testimonials from config file
+const loadTestimonials = async function () {
+  try {
+    const response = await fetch('./assets/data/testimonials.json');
+    if (!response.ok) throw new Error('Failed to load testimonials');
+    const testimonials = await response.json();
+    renderTestimonials(testimonials);
+  } catch (error) {
+    console.error('Error loading testimonials:', error);
+  }
+}
+
+// Render testimonials dynamically
+const renderTestimonials = function (testimonials) {
+  const testimonialsList = document.getElementById("testimonialsList");
+  testimonialsList.innerHTML = "";
+
+  testimonials.forEach(testimonial => {
+    const testimonialItem = document.createElement("li");
+    testimonialItem.className = "testimonials-item";
+
+    testimonialItem.innerHTML = `
+      <div class="content-card" data-testimonials-item>
+        <figure class="testimonials-avatar-box">
+          <img
+            src="./assets/images/avatar-1.png"
+            alt="${testimonial.name}"
+            width="60"
+            data-testimonials-avatar
+          />
+        </figure>
+
+        <h4 class="h4 testimonials-item-title" data-testimonials-title>
+          ${testimonial.name}
+        </h4>
+
+        <p style="font-size: 0.875rem; color: #808080; margin-bottom: 0.5rem;">
+          <strong>${testimonial.business}</strong>
+        </p>
+
+        <div class="testimonials-text" data-testimonials-text>
+          <p>${testimonial.description}</p>
+        </div>
+      </div>
+    `;
+
+    testimonialsList.appendChild(testimonialItem);
+  });
+
+  // Setup modal click handlers after testimonials are rendered
+  setupTestimonialsModalHandlers();
+}
+
+// Setup click handlers for testimonials modal
+const setupTestimonialsModalHandlers = function () {
+  const testimonialsItems = document.querySelectorAll("[data-testimonials-item]");
+  const modalContainer = document.querySelector("[data-modal-container]");
+  const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
+  const overlay = document.querySelector("[data-overlay]");
+  const modalImg = document.querySelector("[data-modal-img]");
+  const modalTitle = document.querySelector("[data-modal-title]");
+  const modalText = document.querySelector("[data-modal-text]");
+
+  // modal toggle function
+  const testimonialsModalFunc = function () {
+    modalContainer.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
+
+  // add click event to all testimonials items
+  testimonialsItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+      modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+      modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+      modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+      
+      testimonialsModalFunc();
+    });
+  });
+
+  // add click event to modal close button
+  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+  overlay.addEventListener("click", testimonialsModalFunc);
+}
+
+
+// ============================================
+// PAGE NAVIGATION
+// ============================================
+
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
@@ -158,32 +471,47 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
-//Form sending 
+
+// ============================================
+// CONTACT FORM
+// ============================================
+
 const form = document.getElementById("form");
 const sub = document.querySelector(".form-btn");
-var i = 0 ;
+let formSubmitted = false;
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  if (i==0){
+  if (!formSubmitted) {
     emailjs.sendForm("service_p8lfbij", "template_chkgosw", this).then(
-    function (response) {
-      console.log("Email sent successfully:", response);
-      sub.innerHTML =
-        '<ion-icon name="paper-plane"></ion-icon> <span>Message Sent successfully !</span>';
-      i++;
-        // Optionally, display a success message to the user
-    },
-    function (error) {
-      console.error("Error sending email:", error);
-
-      sub.innerHTML =
-        '<ion-icon name="paper-plane"></ion-icon> <span>Error occured sending the message .</span>';
-      // Optionally, display an error message to the user
-    }
+      function (response) {
+        console.log("Email sent successfully:", response);
+        sub.innerHTML =
+          '<ion-icon name="paper-plane"></ion-icon> <span>Message Sent successfully !</span>';
+        formSubmitted = true;
+      },
+      function (error) {
+        console.error("Error sending email:", error);
+        sub.innerHTML =
+          '<ion-icon name="paper-plane"></ion-icon> <span>Error occured sending the message .</span>';
+      }
     );
-  }
-  else{
+  } else {
     sub.innerHTML =
       '<ion-icon name="paper-plane"></ion-icon> <span>Message Already Sent!</span>';
   }
+});
+
+
+// ============================================
+// INITIALIZATION
+// ============================================
+
+// Load projects and clients when page loads
+document.addEventListener("DOMContentLoaded", function () {
+  loadProjects();
+  loadClients();
+  loadResume();
+  loadSkills();
+  loadTestimonials();
 });

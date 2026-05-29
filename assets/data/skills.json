@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Front End Development",
+    "value": 95
+  },
+  {
+    "id": 2,
+    "name": "Back End Development",
+    "value": 90
+  },
+  {
+    "id": 3,
+    "name": "App Dev",
+    "value": 90
+  },
+  {
+    "id": 4,
+    "name": "Data Scraping & Analysis",
+    "value": 80
+  },  
+  {
+    "id": 4,
+    "name": "LLM & RAG Systems (AI overall)",
+    "value": 80
+  },  
+  {
+    "id": 5,
+    "name": "Graphic Design",
+    "value": 70
+  },
+
+  {
+    "id": 6,
+    "name": "Video Editing",
+    "value": 60
+  }
+]
