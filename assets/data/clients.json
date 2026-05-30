@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "name": "Phoenix Club",
-    "logo": "./assets/images/phoenix.png",
+    "name": "Client 5",
+    "logo": "./assets/images/grilladeilyes.png",
     "website": "#"
   },
   {
     "id": 2,
-    "name": "ESGEE",
-    "logo": "./assets/images/esgee.png",
+    "name": "Client 6",
+    "logo": "./assets/images/hippologo.svg",
     "website": "#"
-  },
+  },   
   {
     "id": 3,
     "name": "Infini IA",
@@ -19,8 +19,87 @@
   },
   {
     "id": 4,
+    "name": "Agrobiosmart",
+    "logo": "./assets/images/agrobiosmartlogo.png",
+    "website": "#"
+  },
+  {
+    "id": 5,
+    "name": "Innoverse",
+    "logo": "./assets/images/innoverse-logo.png",
+    "website": "#"
+  },
+  {
+    "id": 6,
+    "name": "Clinix",
+    "logo": "./assets/images/clinix-logo.png",
+    "website": "#"
+  },
+  {
+    "id": 7,
+    "name": "PharmaClick",
+    "logo": "./assets/images/pharmaclick-logo.png",
+    "website": "#"
+  },
+  {
+    "id": 7,
+    "name": "Stagini",
+    "logo": "./assets/images/stagini-logo.svg",
+    "website": "#"
+  },
+  {
+    "id": 8,
+    "name": "Croissant Rouge Oran",
+    "logo": "./assets/images/cr-logo.png",
+    "website": "#"
+  },
+    {
+    "id": 9,
+    "name": "Faculté de medecine",
+    "logo": "./assets/images/logo-faculte.png",
+    "website": "#"
+  },
+  {
+    "id": 10,
+    "name": "Zenith Club",
+    "logo": "https://zenith-2dacd.web.app/assets/icon.png",
+    "website": "#"
+  },
+  {
+    "id": 11,
+    "name": "Phoenix Club",
+    "logo": "./assets/images/phoenix.png",
+    "website": "#"
+  },
+  {
+    "id": 12,
+    "name": "Media Craft",
+    "logo": "./assets/images/mediacraft-logo.png",
+    "website": "#"
+  },
+  {
+    "id": 13,
+    "name": "Hadathi",
+    "logo": "./assets/images/hadathi-logo.png",
+    "website": "#"
+  },
+  {
+    "id": 14,
+    "name": "Fanous",
+    "logo": "https://yacinelaribi.github.io/fanous/assets/images/logo.png",
+    "website": "#"
+  },
+  {
+    "id": 15,
+    "name": "ESGEE",
+    "logo": "./assets/images/esgee.png",
+    "website": "#"
+  },
+  {
+    "id": 16,
     "name": "Client 4",
     "logo": "./assets/images/logo-4-color.png",
     "website": "#"
   }
+
 ]
