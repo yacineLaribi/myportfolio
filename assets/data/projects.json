@@ -3,12 +3,18 @@
     "id": 1,
     "name": "Hippo - Platforme Educative Médicale",
     "category": "Web development",
-    "thumbnail": "./assets/images/logo-pre-light-2.svg",
+    "thumbnail": "./assets/images/hippologo.svg",
     "details": "A comprehensive medical educational platform designed to help students and professionals access quality medical education resources. Features include interactive lessons, case studies, and a community forum.",
     "gallery": [
-      "./assets/images/logo-pre-light-2.svg",
-      "./assets/images/logo-pre-light-2.svg",
-      "./assets/images/logo-pre-light-2.svg"
+      "./assets/demo/hippo/landing.png",
+      "./assets/demo/hippo/medicine.png",
+      "./assets/demo/hippo/search.png",
+      "./assets/demo/hippo/profile.png",
+      "./assets/demo/hippo/simulation.png",
+      "./assets/demo/hippo/leaderboard.png",
+      "./assets/demo/hippo/assistantpre.png",
+      "./assets/demo/hippo/residanat.png",
+      "./assets/demo/hippo/anki.png"
     ],
     "link": "https://hippodz.com/",
     "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"]

@@ -70,6 +70,41 @@ const setupGalleryThumbnails = function () {
       this.classList.add("active");
     });
   });
+
+  // Add fullscreen click handler to main image
+  setupFullscreenImageModal();
+}
+
+// Setup fullscreen image modal
+const setupFullscreenImageModal = function () {
+  const fullscreenModal = document.querySelector("[data-fullscreen-image-modal]");
+  const fullscreenOverlay = document.querySelector("[data-fullscreen-overlay]");
+  const fullscreenCloseBtn = document.querySelector("[data-fullscreen-close-btn]");
+  const fullscreenImage = document.querySelector("[data-fullscreen-image]");
+
+  // Open fullscreen on main image click
+  projectModalMainImg.addEventListener("click", function () {
+    fullscreenImage.src = this.src;
+    fullscreenImage.alt = this.alt;
+    fullscreenModal.classList.add("active");
+  });
+
+  // Close fullscreen on close button click
+  fullscreenCloseBtn.addEventListener("click", function () {
+    fullscreenModal.classList.remove("active");
+  });
+
+  // Close fullscreen on overlay click
+  fullscreenOverlay.addEventListener("click", function () {
+    fullscreenModal.classList.remove("active");
+  });
+
+  // Close fullscreen on ESC key
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      fullscreenModal.classList.remove("active");
+    }
+  });
 }
 
 

@@ -481,7 +481,7 @@
 
               <div class="project-modal-gallery">
                 <div class="gallery-main">
-                  <img class="gallery-main-img" data-project-modal-main-img src="" alt="project" />
+                  <img class="gallery-main-img" data-project-modal-main-img src="" alt="project" style="cursor: pointer;" />
                 </div>
                 <div class="gallery-thumbnails" id="galleryThumbnails">
                   <!-- Thumbnails will be loaded here -->
@@ -507,6 +507,19 @@
               </div>
             </div>
           </section>
+        </div>
+
+        <!--
+        - #FULLSCREEN IMAGE MODAL
+      -->
+        <div class="fullscreen-image-modal" data-fullscreen-image-modal>
+          <div class="fullscreen-overlay" data-fullscreen-overlay></div>
+          <div class="fullscreen-content">
+            <button class="fullscreen-close-btn" data-fullscreen-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <img class="fullscreen-image" data-fullscreen-image src="" alt="project" />
+          </div>
         </div>
 
         <!--
