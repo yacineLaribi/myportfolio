@@ -2,9 +2,9 @@
   {
     "id": 1,
     "name": "Hippo - Platforme Educative Médicale",
-    "category": "Web development",
-    "thumbnail": "./assets/images/hippologo.svg",
-    "details": "A comprehensive medical educational platform designed to help students and professionals access quality medical education resources. Features include interactive lessons, case studies, and a community forum.",
+    "category": "Personal Project",
+    "thumbnail": "./assets/demo/hippo/landing.png",
+    "details": "A comprehensive medical educational platform designed to help students and professionals access quality medical education resources. Features include AI tools that summarize your lessons or generate MCQ exams out of them or anki cards and a lot of other cool functionnalities",
     "gallery": [
       "./assets/demo/hippo/landing.png",
       "./assets/demo/hippo/medicine.png",
@@ -17,10 +17,27 @@
       "./assets/demo/hippo/anki.png"
     ],
     "link": "https://hippodz.com/",
-    "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"]
+    "technologies": ["Django", "MariaDB", "Tailwind CSS"]
   },
   {
     "id": 2,
+    "name": "Clinix Competition Platform",
+    "category": "Personal Project",
+    "thumbnail": "./assets/demo/clinix/landing.png",
+    "details": "Clinix is CTF like medical competition designed specifically to test the clinical reasoning of medical students , i used this platform 2 host 3 medical competitions in the faculty of medicine so far",
+    "gallery": [
+      "./assets/demo/clinix/landing.png",
+      "./assets/demo/clinix/main.png",
+      "./assets/demo/clinix/details1.png",
+      "./assets/demo/clinix/details2.png",
+      "./assets/demo/clinix/details3.png",
+      "./assets/demo/clinix/leader.png"
+    ],
+    "link": "https://infiniia.ca/",
+    "technologies": ["HTML", "CSS", "Python", "Django"]
+  },  
+  {
+    "id": 3,
     "name": "Infini IA Website",
     "category": "Web development",
     "thumbnail": "./assets/images/infiniwebsite.png",
@@ -38,8 +55,6 @@
     "thumbnail": "./assets/images/wimax.png",
     "details": "A charitable initiative website focused on providing telecommunications solutions to Palestine. The site includes donation functionality and impact tracking.",
     "gallery": [
-      "./assets/images/wimax.png",
-      "./assets/images/wimax.png",
       "./assets/images/wimax.png"
     ],
     "link": "https://yacinelaribi.github.io/WimaxForPalestine/",
@@ -52,8 +67,6 @@
     "thumbnail": "./assets/images/phoenixw.png",
     "details": "The official website for Phoenix Club, a scientific organization at ESGEE. Features club events, projects showcase, member directory, and tech corner initiatives.",
     "gallery": [
-      "./assets/images/phoenixw.png",
-      "./assets/images/phoenixw.png",
       "./assets/images/phoenixw.png"
     ],
     "link": "https://phoenix-esgee.site/",
@@ -66,8 +79,6 @@
     "thumbnail": "./assets/images/project-8.jpg",
     "details": "A cross-platform mobile application built with Flutter. Features include task management, priority levels, due dates, and local notifications for reminders.",
     "gallery": [
-      "./assets/images/project-8.jpg",
-      "./assets/images/project-8.jpg",
       "./assets/images/project-8.jpg"
     ],
     "link": "#",
@@ -80,8 +91,6 @@
     "thumbnail": "./assets/images/inktalks.png",
     "details": "An engaging platform for sharing writing and literature discussions. Features include user profiles, story submissions, voting system, and community comments.",
     "gallery": [
-      "./assets/images/inktalks.png",
-      "./assets/images/inktalks.png",
       "./assets/images/inktalks.png"
     ],
     "link": "https://yacinelaribi.github.io/ink-talks/",
@@ -94,8 +103,6 @@
     "thumbnail": "./assets/images/telehackweb.png",
     "details": "An interactive cybersecurity challenge platform. Users can attempt various hacking challenges, learn about security concepts, and compete on leaderboards.",
     "gallery": [
-      "./assets/images/telehackweb.png",
-      "./assets/images/telehackweb.png",
       "./assets/images/telehackweb.png"
     ],
     "link": "https://telehack.phoenix-esgee.site/",
@@ -122,8 +129,6 @@
     "thumbnail": "./assets/images/mediacraft.png",
     "details": "A creative media production platform showcasing multimedia projects and services. Includes portfolio display, client testimonials, and booking system.",
     "gallery": [
-      "./assets/images/mediacraft.png",
-      "./assets/images/mediacraft.png",
       "./assets/images/mediacraft.png"
     ],
     "link": "https://yacinelaribi.github.io/media_craft",
@@ -136,8 +141,6 @@
     "thumbnail": "./assets/images/stagini.png",
     "details": "An internship and apprenticeship matching platform. Connects students with companies offering internship opportunities, featuring job listings, applications, and notifications.",
     "gallery": [
-      "./assets/images/stagini.png",
-      "./assets/images/stagini.png",
       "./assets/images/stagini.png"
     ],
     "link": "https://github.com/yacineLaribi/MHC",
