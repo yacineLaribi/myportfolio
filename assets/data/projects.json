@@ -53,7 +53,7 @@
     "name": "Wimax For Palestine",
     "category": "Web development",
     "thumbnail": "./assets/images/wimax.png",
-    "details": "A charitable initiative website focused on providing telecommunications solutions to Palestine. The site includes donation functionality and impact tracking.",
+    "details": "A charitable initiative website focused on providing telecommunications solutions to Palestine. The site includes step by step guide to implement the wimax infrastructure in a war zone and with non expensive equipement.",
     "gallery": [
       "./assets/images/wimax.png"
     ],

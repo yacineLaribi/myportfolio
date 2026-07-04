@@ -149,8 +149,38 @@
               </a>
             </li>
           </ul>
+
+          <button class="sidebar-video-btn" type="button" data-intro-video-btn>
+            <ion-icon name="play-circle-outline"></ion-icon>
+            <span>Watch Intro Video</span>
+          </button>
         </div>
       </aside>
+
+      <div class="intro-video-modal-container" data-intro-video-modal-container>
+        <div class="overlay" data-intro-video-overlay></div>
+
+        <section class="intro-video-modal">
+          <button class="modal-close-btn" data-intro-video-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+          <h3 class="h3 intro-video-title">Intro Video</h3>
+
+          <div class="intro-video-frame">
+            <video
+              class="intro-video-element"
+              data-intro-video-player
+              controls
+              preload="metadata"
+              playsinline
+            >
+              <source src="./assets/demo/intro.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+      </div>
 
       <!--
       - #main-content

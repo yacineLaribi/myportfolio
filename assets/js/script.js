@@ -20,6 +20,37 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
 
+const introVideoBtn = document.querySelector("[data-intro-video-btn]");
+const introVideoModalContainer = document.querySelector("[data-intro-video-modal-container]");
+const introVideoOverlay = document.querySelector("[data-intro-video-overlay]");
+const introVideoCloseBtn = document.querySelector("[data-intro-video-close-btn]");
+const introVideoPlayer = document.querySelector("[data-intro-video-player]");
+
+const openIntroVideoModal = function () {
+  introVideoModalContainer.classList.add("active");
+  introVideoOverlay.classList.add("active");
+}
+
+const closeIntroVideoModal = function () {
+  introVideoModalContainer.classList.remove("active");
+  introVideoOverlay.classList.remove("active");
+
+  introVideoPlayer.pause();
+  introVideoPlayer.currentTime = 0;
+}
+
+if (introVideoBtn && introVideoModalContainer && introVideoOverlay && introVideoCloseBtn && introVideoPlayer) {
+  introVideoBtn.addEventListener("click", openIntroVideoModal);
+  introVideoCloseBtn.addEventListener("click", closeIntroVideoModal);
+  introVideoOverlay.addEventListener("click", closeIntroVideoModal);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && introVideoModalContainer.classList.contains("active")) {
+      closeIntroVideoModal();
+    }
+  });
+}
+
 
 // ============================================
 // TESTIMONIALS MODAL FUNCTIONALITY (moved to renderTestimonials function)
